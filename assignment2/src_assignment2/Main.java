@@ -186,4 +186,83 @@ public class Main {
 
         return sb.toString();
     }
+
+    
+    //Q8
+    public boolean isPalindrome(String s) {
+        if (s.isEmpty()) {
+            return true;
+        }
+        int head = 0, tail = s.length() - 1;
+        char cHead, cTail;
+        while(head <= tail) {
+            cHead = s.charAt(head);
+            cTail = s.charAt(tail);
+            if (!Character.isLetterOrDigit(cHead)) {
+                head++;
+            } else if(!Character.isLetterOrDigit(cTail)) {
+                tail--;
+            } else {
+                if (Character.toLowerCase(cHead) != Character.toLowerCase(cTail)) {
+                    return false;
+                }
+                head++;
+                tail--;
+            }
+        }
+
+        return true;
+    }
+
+
+
+    //Q9
+    public String reverseWords(String s) {
+        char[] str = reverse(s.toCharArray(), 0, s.length()-1);
+        int start = 0, end = 0;
+        for (int i = 0; i < str.length; i++) {
+            if (str[i] != ' ') {
+                str[end++] = str[i];
+            } else if (i > 0 && str[i-1] != ' ') {
+                reverse(str, start, end-1);
+                str[end++] = ' ';
+                start = end;
+            }
+        }
+        reverse(str, start, end-1);
+        return new String(str, 0, end > 0 && str[end-1] == ' ' ? end-1 : end);
+
+    }
+
+    public char[] reverse(char[] arr, int i, int j) {
+        while (i < j) {
+            char tmp = arr[i];
+            arr[i++] = arr[j];
+            arr[j--] = tmp;
+        }
+        return arr;
+    }
+
+
+
+    //Q10
+    public int compress(char[] chars) {
+        int indexAns = 0, idx = 0;
+        while(idx < chars.length){
+            char currentChar = chars[idx];
+            int count = 0;
+            while(idx < chars.length && chars[idx] == currentChar){
+                idx++;
+                count++;
+            }
+            chars[indexAns++] = currentChar;
+            if(count != 1)
+                for(char c : Integer.toString(count).toCharArray())
+                    chars[indexAns++] = c;
+        }
+        return indexAns;
+    }
+
+
+
 }
