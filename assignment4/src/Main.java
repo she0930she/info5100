@@ -12,6 +12,8 @@ public class Main {
         list.removeAtPosition(0, 0);
         list.removeAtPosition(3,3);
         list.printList();
+        System.out.println(list.getFirst());
+        System.out.println(list.getLast());
 
 
     }

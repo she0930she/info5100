@@ -48,6 +48,7 @@ public class SafeLinkedList {
             }else{
                 linkedList.remove(idx);
             }
+            return;
         }
 
     }
