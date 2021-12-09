@@ -23,7 +23,7 @@ public class Main {
         }
         System.out.println();
 
-        Collections.sort(list,(e1,e2)-> e1.getGpa().compareTo(e2.getGpa()));
+        Collections.sort(list,(e1,e2)-> e2.getGpa().compareTo(e1.getGpa()));
         for (Student s:list){
             System.out.println(s.getName() + ", GPA:  " +s.getGpa());
         }
@@ -35,7 +35,6 @@ public class Main {
                     (s.getDateOfBirth().getYear()+1900)  +"/"+
                     s.getDateOfBirth().getMonth()+"/"+
                     s.getDateOfBirth().getDate());
-            //System.out.println(s.getDateOfBirth().getYear()+1900);
         }
         System.out.println();
 
