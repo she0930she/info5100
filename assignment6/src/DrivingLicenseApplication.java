@@ -16,7 +16,7 @@ public class DrivingLicenseApplication {
     }
 
 
-    public void applyDriverLicense(){
+    public void applyDriverLicense() throws Exception {
         Scanner obj= new Scanner(System.in);
         System.out.println("Enter Drivers Birth year");
         int year= Integer.parseInt( obj.nextLine());
@@ -27,10 +27,16 @@ public class DrivingLicenseApplication {
 
         Date userDate= new GregorianCalendar(year, month-1, date).getTime();
         int diff= (int) ChronoUnit.DAYS.between(userDate.toInstant(), dateNow.toInstant());
-        if (diff < 365*16 ){
-            throw new ArithmeticException("The age of the applicant is too early to apply for a driving license");
+//        if (diff < 365*16 ){
+//            throw new Exception("eeee");
+//        }
+//        if (diff < 365*16 ){
+//            throw new Exception("The age of the applicant is too early to apply for a driving license");
+//        }
+        if(diff < 365*16 ){
+            throw new Exception("under age applicant");
         }else{
-            System.out.println("register successfully");
+            System.out.println("registered successfully!!");
         }
 
 

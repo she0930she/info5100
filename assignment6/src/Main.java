@@ -40,7 +40,12 @@ public class Main {
 
         //Q2
         DrivingLicenseApplication da= new DrivingLicenseApplication();
-        da.applyDriverLicense();
+        try{
+            da.applyDriverLicense();
+        }catch(Exception e){
+            System.out.println("The age of the applicant is too early to apply for a driving license");
+        }
+
 
 
 
